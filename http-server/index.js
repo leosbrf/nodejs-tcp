@@ -1,6 +1,11 @@
 require("http")
   .createServer(function(req, res) {
     res.writeHead(200, { "Content-Type": "text/html" });
-    res.end("Hello <b>World</b>");
+    res.write("Hello");
+
+    setTimeout(function () {
+        res.end("World");
+    }, 1000);
+    
   })
   .listen(3000);
