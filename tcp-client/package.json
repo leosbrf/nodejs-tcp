@@ -1,5 +1,5 @@
 {
-  "name": "tcp-chat",
+  "name": "irc-client",
   "description": "A TCP client",
   "version": "0.0.1"
 }
