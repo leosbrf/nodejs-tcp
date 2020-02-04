@@ -1,11 +1,14 @@
 require("http")
   .createServer(function(req, res) {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write("Hello");
+    res.writeHead(200, { "Content-Type": "image/png" });
+    var stream = require("fs").createReadStream("image.png");
 
-    setTimeout(function () {
-        res.end("World");
-    }, 1000);
-    
+    stream.on("data", function(data) {
+      res.write(data);
+    });
+
+    stream.on("end", function() {
+      res.end();
+    });
   })
   .listen(3000);
